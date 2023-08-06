@@ -1,0 +1,18 @@
+@use 'reset' as *;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+// style
+body {
+  font-family: 'Rubik', sans-serif;
+}
+.dashboard {
+  display: grid;
+}
+$colors: hsl(246, 80%, 60%), hsl(15, 100%, 70%), hsl(195, 74%, 62%),
+  hsl(348, 100%, 68%), hsl(145, 58%, 55%), hsl(264, 64%, 52%), hsl(43, 84%, 65%);
+
+@for $i from 1 through length($colors) {
+  .dashboard__card:nth-child(#{$i}) {
+    background-color: nth($colors, $i);
+  }
+}
