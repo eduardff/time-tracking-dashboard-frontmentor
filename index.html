@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link
+      rel="shortcut icon"
+      href="public/favicon-32x32.png"
+      type="image/x-icon"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Time Tracking Dashboard</title>
   </head>
@@ -21,7 +25,7 @@
 
           <div class="dashboard__user-menu">
             <nav>
-              <ul class="dashboard__list">
+              <ul class="dashboard__list" id="dashboard__list">
                 <li>Daily</li>
                 <li>Weekly</li>
                 <li>Monthly</li>
@@ -29,106 +33,29 @@
             </nav>
           </div>
         </div>
-        <!-- 2 -->
-        <div class="dashboard__card">
-          <div class="dashboard__back">
-            <div><img src="icon-work.svg" alt="" /></div>
-          </div>
-          <div class="dashboard__front">
-            <header>
-              <p>work</p>
-              <p>...</p>
-              <!-- <img src="public/icon-ellipsis.svg" alt="" /> -->
-            </header>
-            <footer>
-              <strong>23hrs</strong>
-              <p>last week - 8hrs</p>
-            </footer>
-          </div>
-        </div>
-        <!-- 3 -->
-        <div class="dashboard__card">
-          <div class="dashboard__back">
-            <div><img src="icon-play.svg" alt="" /></div>
-          </div>
-          <div class="dashboard__front">
-            <header>
-              <p>work</p>
-              <p>...</p>
-            </header>
-            <footer>
-              <strong>23hrs</strong>
-              <p>last week - 8hrs</p>
-            </footer>
-          </div>
-        </div>
-        <!-- 4 -->
-        <div class="dashboard__card">
-          <div class="dashboard__back">
-            <div><img src="icon-study.svg" alt="" /></div>
-          </div>
-          <div class="dashboard__front">
-            <header>
-              <p>work</p>
-              <p>...</p>
-            </header>
-            <footer>
-              <strong>23hrs</strong>
-              <p>last week - 8hrs</p>
-            </footer>
-          </div>
-        </div>
-        <!-- 5 -->
-        <div class="dashboard__card">
-          <div class="dashboard__back">
-            <div><img src="icon-exercise.svg" alt="" /></div>
-          </div>
-          <div class="dashboard__front">
-            <header>
-              <p>work</p>
-              <p>...</p>
-            </header>
-            <footer>
-              <strong>23hrs</strong>
-              <p>last week - 8hrs</p>
-            </footer>
-          </div>
-        </div>
-        <!-- 6 -->
-        <div class="dashboard__card">
-          <div class="dashboard__back">
-            <div><img src="icon-social.svg" alt="" /></div>
-          </div>
-          <div class="dashboard__front">
-            <header>
-              <p>work</p>
-              <p>...</p>
-            </header>
-            <footer>
-              <strong>23hrs</strong>
-              <p>last week - 8hrs</p>
-            </footer>
-          </div>
-        </div>
-        <!-- 7 -->
-        <div class="dashboard__card">
-          <div class="dashboard__back">
-            <div><img src="icon-self-care.svg" alt="" /></div>
-          </div>
-          <div class="dashboard__front">
-            <header>
-              <p>work</p>
-              <p>...</p>
-            </header>
-            <footer>
-              <strong>23hrs</strong>
-              <p>last week - 8hrs</p>
-            </footer>
-          </div>
-        </div>
+        <div class="dashboard__cards" id="dashboard__cards"></div>
       </div>
     </main>
-
+    <!-- Template -->
+    <template id="template-card">
+      <div class="dashboard__card">
+        <div class="dashboard__back">
+          <div><img src="" alt="" class="iconImg" /></div>
+        </div>
+        <div class="dashboard__front">
+          <header>
+            <p id="title"></p>
+            <div>
+              <img src="public/icon-ellipsis.svg" alt="" />
+            </div>
+          </header>
+          <footer>
+            <strong id="current"></strong>
+            <p>last week - <span id="previous"></span>hrs</p>
+          </footer>
+        </div>
+      </div>
+    </template>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

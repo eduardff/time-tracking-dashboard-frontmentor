@@ -13,11 +13,12 @@ body {
 
 .wrapper {
   width: clamp(330px, 90vw, 1040px);
+  // width: min(100%, 1040px);
   margin-inline: auto;
 }
 
-$colors: hsl(246, 80%, 60%), hsl(15, 100%, 70%), hsl(195, 74%, 62%),
-  hsl(348, 100%, 68%), hsl(145, 58%, 55%), hsl(264, 64%, 52%), hsl(43, 84%, 65%);
+$colors: hsl(15, 100%, 70%), hsl(195, 74%, 62%), hsl(348, 100%, 68%),
+  hsl(145, 58%, 55%), hsl(264, 64%, 52%), hsl(43, 84%, 65%);
 
 @for $i from 1 through length($colors) {
   .dashboard__card:nth-child(#{$i}) {
@@ -31,16 +32,27 @@ $colors: hsl(246, 80%, 60%), hsl(15, 100%, 70%), hsl(195, 74%, 62%),
   grid-template-columns: 330px;
   gap: 1em;
   place-content: center;
+  margin: 1em 0;
   @include mq(medium) {
-    grid-template-columns: 20% repeat(3, 1fr);
-    grid-auto-rows: 220px;
+    grid-template-columns: 20% 1fr;
     gap: 1.5em;
   }
   &__user {
     @include mq(medium) {
-      grid-row: 1/3;
+      grid-row: 1/-1;
       display: grid;
       grid-template-rows: auto auto;
+    }
+  }
+  &__cards {
+    display: grid;
+    gap: 1em;
+
+    @include mq(medium) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 220px;
+      gap: 1.5em;
     }
   }
   &__user-card {
@@ -78,6 +90,9 @@ $colors: hsl(246, 80%, 60%), hsl(15, 100%, 70%), hsl(195, 74%, 62%),
     border-radius: 0 0 1em 1em;
     margin-top: -1em;
     background-color: hsl(235, 46%, 20%);
+    nav {
+      height: 100%;
+    }
   }
   &__list {
     display: flex;
