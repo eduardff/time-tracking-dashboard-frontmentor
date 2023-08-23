@@ -1,5 +1,5 @@
 import data from './data.json';
-const $dashboardList = document.getElementById('dashboard__list');
+const $dashboardBtnList = document.getElementById('dashboard__list');
 const $templateCard = document.getElementById('template-card').content;
 
 const $dashboardCards = document.getElementById('dashboard__cards');
@@ -43,13 +43,13 @@ const _dashboardShow = () => {
   document.addEventListener('DOMContentLoaded', () => {
     _dashboardTemplate('weekly');
   });
-  $dashboardList.addEventListener('click', (event) => {
+  $dashboardBtnList.addEventListener('click', (event) => {
     const selectedFrequency = event.target.dataset.frequency;
     if (selectedFrequency) {
       _dashboardTemplate(selectedFrequency);
 
       // Elimina la clase 'active' de todos los elementos
-      $dashboardList.querySelectorAll('li').forEach((element) => {
+      $dashboardBtnList.querySelectorAll('li').forEach((element) => {
         element.classList.remove('btn-active');
       });
       // agrega la clase 'active' de todos los elementos
