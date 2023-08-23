@@ -1,3 +1,3 @@
-import { _dashboardShow } from './counter';
+import { _dashboardShow } from './script';
 import './sass/style.scss';
 _dashboardShow();
