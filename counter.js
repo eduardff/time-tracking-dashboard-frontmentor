@@ -44,14 +44,17 @@ const _dashboardShow = () => {
     _dashboardTemplate('weekly');
   });
   $dashboardList.addEventListener('click', (event) => {
-    if (event.target.textContent === 'Daily') {
-      return _dashboardTemplate('daily');
-    }
-    if (event.target.textContent === 'Weekly') {
-      return _dashboardTemplate('weekly');
-    }
-    if (event.target.textContent === 'Monthly') {
-      return _dashboardTemplate('monthly');
+    const selectedFrequency = event.target.dataset.frequency;
+    if (selectedFrequency) {
+      _dashboardTemplate(selectedFrequency);
+
+      // Elimina la clase 'active' de todos los elementos
+      $dashboardList.querySelectorAll('li').forEach((element) => {
+        element.classList.remove('btn-active');
+      });
+      // agrega la clase 'active' de todos los elementos
+
+      event.target.classList.add('btn-active');
     }
   });
 };
